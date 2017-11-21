@@ -4,12 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.TextField;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ChatListPanel extends JPanel{
 	private JLabel Myprofile;
-	private JLabel[] friendImg;
+	private JLabel friendImg;
 	private JLabel MyImg;
 	private TextField searchFriend;
 	
@@ -37,6 +38,7 @@ public class ChatListPanel extends JPanel{
 		Myprofile.setOpaque(true);
 		Myprofile.setBackground(Color.WHITE);
 		add(Myprofile);
+		
 	}
 
 }

@@ -29,10 +29,16 @@ public class friendPanel extends JPanel {
 	private JPanel friendList;
 	private JScrollPane friendScroll;
 	
-	final String defaultImg = "/src/images/userIcon.png";
+	final String defaultImg = "icon.png";
 	
 	public friendPanel(MainFrame f) {
+		
+		/*JScrollPane sPane = new JScrollPane();
+        sPane.getViewport().setView(this);
+        f.add(sPane);*/
+//		getVerticalScrollBar().setValue(getVerticalScrollBar().getMaximum());
 
+		//getAutoscrolls();
 		this.f = f;
 
 		setLayout(null);
@@ -59,9 +65,10 @@ public class friendPanel extends JPanel {
 		MyImg = new JLabel(new ImageIcon(defaultImg));
 		MyImg.setBounds(10, 40, 70, 70);
 		MyImg.setOpaque(true);
+		MyImg.setBackground(Color.white);
 		add(MyImg);
 		
-		for(int j=0;j<7;j++) {
+		for(int j=0;j<5;j++) {
 		friendVector.add(" User " + (j+1));
 		}
 		
@@ -72,6 +79,7 @@ public class friendPanel extends JPanel {
 			friendLabel[i] = new JLabel(friendVector.get(i));
 			friendImg[i] = new JLabel(new ImageIcon(defaultImg));
 			friendImg[i].setBounds(10, 120 + (i*71), 70, 70);
+			friendImg[i].setBackground(Color.white);
 			friendImg[i].setOpaque(true);
 			
 			friendLabel[i].setBounds(80, 120 + (i*71), 505, 70);
@@ -83,14 +91,15 @@ public class friendPanel extends JPanel {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					// TODO Auto-generated method stub
-					JLabel friendName = (JLabel) e.getSource();
-					ChatFrame a = new ChatFrame(friendName.getText());
-					System.out.println(friendName.getText());
+					
 				}
 				
 				@Override
 				public void mouseReleased(MouseEvent e) {
 					// TODO Auto-generated method stub
+					JLabel friendName = (JLabel) e.getSource();
+					ChatFrame a = new ChatFrame(friendName.getText());
+					System.out.println(friendName.getText());
 					
 				}
 				
