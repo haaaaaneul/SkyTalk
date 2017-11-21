@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class ChatFrame extends JFrame{
 
-	public ChatFrame() {
+	public ChatFrame(String friendName) {
 		setTitle("SKY TALK- chatting");
 		setSize(600, 850);
 		setResizable(false);
@@ -25,7 +25,7 @@ public class ChatFrame extends JFrame{
 
 		Container c = getContentPane();
 		
-		c.add(new chatPanel(this));
+		c.add(new chatPanel(this,friendName));
 		
 		setVisible(true);
 	}

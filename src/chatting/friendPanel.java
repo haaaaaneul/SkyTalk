@@ -29,16 +29,10 @@ public class friendPanel extends JPanel {
 	private JPanel friendList;
 	private JScrollPane friendScroll;
 	
-	final String defaultImg = "profileicon.png";
+	final String defaultImg = "/src/images/userIcon.png";
 	
 	public friendPanel(MainFrame f) {
-		
-		/*JScrollPane sPane = new JScrollPane();
-        sPane.getViewport().setView(this);
-        f.add(sPane);*/
-//		getVerticalScrollBar().setValue(getVerticalScrollBar().getMaximum());
 
-		getAutoscrolls();
 		this.f = f;
 
 		setLayout(null);
@@ -67,7 +61,7 @@ public class friendPanel extends JPanel {
 		MyImg.setOpaque(true);
 		add(MyImg);
 		
-		for(int j=0;j<50;j++) {
+		for(int j=0;j<7;j++) {
 		friendVector.add(" User " + (j+1));
 		}
 		
@@ -89,9 +83,9 @@ public class friendPanel extends JPanel {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					// TODO Auto-generated method stub
-					JLabel a = (JLabel) e.getSource();
-					
-					System.out.println(a.getText());
+					JLabel friendName = (JLabel) e.getSource();
+					ChatFrame a = new ChatFrame(friendName.getText());
+					System.out.println(friendName.getText());
 				}
 				
 				@Override

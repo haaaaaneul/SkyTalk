@@ -12,6 +12,7 @@ public class StartPanel extends JPanel{
 	private friendPanel friendPanel;
 	private chatPanel chatPanel;
 	private ButtonPanel buttonPanel;
+	private ChatListPanel chatlistPanel;
 	
 	private MainFrame f;
 	
@@ -20,25 +21,27 @@ public class StartPanel extends JPanel{
 		this.f = f;
 		buttonPanel = new ButtonPanel(f);
 		friendPanel = new friendPanel(f);
-		//chatPanel = new chatPanel(f);
+		chatlistPanel = new ChatListPanel(f);
+		
 		friendPanel.setBounds(0, 50, 600, 850);
+		chatlistPanel.setBounds(0, 50, 600, 850);
+		
 		f.add(friendPanel);
 
 		buttonPanel.getChatBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*f.remove(friendPanel);
-				f.add(chatPanel);
+				f.remove(friendPanel);
+				f.add(chatlistPanel);
 				f.revalidate();
-				f.repaint();*/
-				ChatFrame a = new ChatFrame();
+				f.repaint();
 			}
 		});
 
 		buttonPanel.getFriendBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//f.remove(chatPanel);
+				f.remove(chatlistPanel);
 				f.add(friendPanel);
 				f.revalidate();
 				f.repaint();
@@ -49,7 +52,7 @@ public class StartPanel extends JPanel{
 		buttonPanel.getSetBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChatFrame a = new ChatFrame();
+				//ChatFrame a = new ChatFrame();
 			}
 		});
 		

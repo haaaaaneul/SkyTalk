@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -22,16 +24,18 @@ public class chatPanel extends JPanel {
 	private TextField txtWrite;
 	private JButton btnNewButton;
 	private JScrollPane chatScroll;
+	private String friendName;
 
-	public chatPanel(ChatFrame cf) {
+	public chatPanel(ChatFrame cf, String friendName) {
 		
 		this.cf = cf;
+		this.friendName = friendName;
 		
 		setLayout(null);
 		setSize(600,850);
 		setBackground(new Color(168,218,255));
 		
-		profile = new JLabel(" User1");
+		profile = new JLabel(friendName);
 		profile.setBounds(15, 20, 565, 40);
 		profile.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		profile.setOpaque(true);
@@ -61,6 +65,27 @@ public class chatPanel extends JPanel {
 		btnNewButton.setBounds(510, 740, 70, 50);
 		cf.add(btnNewButton);
 		
+		txtWrite.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyReleased(KeyEvent e) { //엔터키 입력해도 추가
+				if(e.getKeyChar() == '\n'){ //엔터 입력 확인
+					textPaneChat.setText(textPaneChat.getText() +"[Kim Ha Neul] : " + txtWrite.getText() + "\n");
+					txtWrite.setText("");
+					txtWrite.requestFocus();
+				}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
